@@ -164,7 +164,6 @@ public class Theater implements Serializable {
             CreditCard newCard = new CreditCard(customerID, cardNumber, expiration);
             if (cardList.insertCard(newCard)) {
                 if (customer.insertCard(newCard)) {
-                    customerList.insertCustomer(customer);
                     return CARD_ADDED;
                 }else{
                     cardList.removeCard(cardNumber);
