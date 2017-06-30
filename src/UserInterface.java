@@ -283,7 +283,7 @@ public class UserInterface {
      */
     public void removeCustomer() {
         int result;
-        do {//
+        do {
             String customerID = getToken("Enter customer id:");
             result = theater.removeCustomer(customerID);
 
