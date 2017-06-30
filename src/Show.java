@@ -14,7 +14,8 @@ public class Show implements Serializable{
 	private String clientID;
 	private Calendar startDate;
 	private Calendar endDate;
-
+	
+	
 	/**
 	 * Creates a new Show
 	 * @param showName
@@ -32,6 +33,9 @@ public class Show implements Serializable{
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
+	
+	
+	
 
 	/**
 	 * Getter for the name of the show
