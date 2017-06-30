@@ -118,6 +118,7 @@ public class Customer implements Serializable{
 		outputString +="\n The credit card(s): " + customerCard.toString(); 
 		
 		return outputString;
+		
 	}
 
 }
