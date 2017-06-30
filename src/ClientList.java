@@ -95,7 +95,7 @@ public class ClientList implements Serializable {
         if (client == null) {
             return false;
         } else {
-            return clients.remove(clientID);
+            return clients.remove(client);
         }
     }
 

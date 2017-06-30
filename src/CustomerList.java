@@ -89,7 +89,7 @@ public class CustomerList implements Serializable {
 			return false;
 		}
 		else {
-			return customers.remove(customerID);
+			return customers.remove(customer);
 		}
 	}
 
