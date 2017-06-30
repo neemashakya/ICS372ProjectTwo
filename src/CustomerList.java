@@ -65,14 +65,14 @@ public class CustomerList implements Serializable {
 	 */
 	public Iterator getCustomers() {
 	    //ToDO need to output credit cards as well to screen
-		Iterator result = customers.iterator();
-		if (customers != null && !customers.isEmpty()) {
-			System.out.println("The Customers are: ");
-			while (result.hasNext()) {
-				System.out.println(result.next());
-			}
-		}
-
+//		Iterator result = customers.iterator();
+//		if (customers != null && !customers.isEmpty()) {
+//			System.out.println("The Customers are: ");
+//			while (result.hasNext()) {
+//				System.out.println(result.next());
+//			}
+//		}
+		Iterator result = customers.listIterator();
 
 		return result;
 	}
