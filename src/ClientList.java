@@ -2,7 +2,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -34,7 +33,7 @@ public class ClientList implements Serializable {
         return clientList == null ? (clientList = new ClientList()) : clientList;
     }
 
-
+   
     /**
      * Returns an iteration for all
      * of the clients.
@@ -91,7 +90,7 @@ public class ClientList implements Serializable {
      */
     public boolean removeClient(String clientID) {
         Client client = search(clientID);
-
+        
         if (client == null) {
             return false;
         } else {

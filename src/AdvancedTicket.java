@@ -1,5 +1,4 @@
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.Calendar;
 
 public class AdvancedTicket extends Ticket implements Serializable{

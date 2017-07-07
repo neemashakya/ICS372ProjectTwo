@@ -85,22 +85,22 @@ public class Client implements Serializable {
     public String getClientID() {
         return clientID;
     }
-
+    
     /**
      * this method adds half of the total of sold tickets
      * @param amount
      */
     public void addToBalance(double amount) {
-        this.balance+=amount;
+    	this.balance+=amount;
     }
-
-
+    
+    
     /**
      * withdraw money from client balance
      * @param amount
      */
     public void withdrawMoney(double amount) {
-        this.balance-=amount;
+    	this.balance-=amount;
     }
 
     /**
