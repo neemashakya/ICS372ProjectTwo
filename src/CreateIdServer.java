@@ -1,8 +1,8 @@
 /**
- * 
+ *
  * @author Brahma Dathan and Sarnath Ramnath
  * @Copyright (c) 2010
- 
+
  * Redistribution and use with or without
  * modification, are permitted provided that the following conditions
  * are met:
@@ -35,7 +35,7 @@ public class CreateIdServer implements Serializable {
   }
   /**
    * Supports the singleton pattern
-   * 
+   *
    * @return the singleton object
    */
   public static CreateIdServer instance() {
@@ -52,17 +52,17 @@ public class CreateIdServer implements Serializable {
   public int getId() {
     return idCounter++;
   }
-  /** 
+  /**
    * String form of the collection
-   * 
-  */
+   *
+   */
   @Override
   public String toString() {
     return ("IdServer" + idCounter);
   }
   /**
    * Retrieves the server object
-   * 
+   *
    * @param input inputstream for deserialization
    */
   public static void retrieve(ObjectInputStream input) {

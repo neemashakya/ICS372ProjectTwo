@@ -3,7 +3,7 @@ import java.io.Serializable;
 /**
  * This class creates a Credit Card with a customer ID, cardNumber, and expiration date
  * creation
- * 
+ *
  * @author Matt Carlson, Jamison Czech, Slava Makharovich, Prashant Shrestha
  */
 
@@ -15,7 +15,7 @@ public class CreditCard implements Serializable{
 
 	/**
 	 * Creates a new CreditCard
-	 * 
+	 *
 	 * @param customerID
 	 *  String customerID
 	 * @param cardNumber
@@ -33,7 +33,7 @@ public class CreditCard implements Serializable{
 
 	/**
 	 * Getter for customerID of credit card
-	 * 
+	 *
 	 * @return a string of the customer ID
 	 */
 	public String getCustomerID() {
@@ -42,7 +42,7 @@ public class CreditCard implements Serializable{
 
 	/**
 	 * Getter for credit card number
-	 * 
+	 *
 	 * @return a string of the credit card number
 	 */
 	public String getCardNumber() {
@@ -51,7 +51,7 @@ public class CreditCard implements Serializable{
 
 	/**
 	 * Getter for expiration date
-	 * 
+	 *
 	 * @return a string of the expiration date
 	 */
 	public String getExpirationDate() {
@@ -62,12 +62,12 @@ public class CreditCard implements Serializable{
 
 	/**
 	 * String representing a credit card
-	 * 
+	 *
 	 * @return a string representing a credit card
 	 */
 	@Override
 	public String toString() {
 		return "Customer ID: " + customerID + ", Card Number: " + cardNumber + ", Expiration Date: "
-					+ expirationDate;
+				+ expirationDate;
 	}
 }

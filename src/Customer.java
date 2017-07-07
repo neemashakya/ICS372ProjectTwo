@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * This class creates a Customer and assigns a unique ID to the Customer upon
  * creation
- * 
+ *
  * @author Matt Carlson, Jamison Czech, Slava Makharovich, Prashant Shrestha
  */
 public class Customer implements Serializable{
@@ -19,12 +19,12 @@ public class Customer implements Serializable{
 	private String address;
 	private String phoneNumber;
 	private String customerID;
-    private static final String CUSTOMER_ID_STRING = "cust ";
+	private static final String CUSTOMER_ID_STRING = "cust ";
 	private List customerCard = new LinkedList();
 	private List  <Ticket> ticketList = new LinkedList();
 	/**
 	 * Creates a new Customer assigning a unique ID and default balance
-	 * 
+	 *
 	 * @param name
 	 *   String name
 	 * @param address
@@ -36,24 +36,24 @@ public class Customer implements Serializable{
 		this.name = name;
 		this.address = address;
 		this.phoneNumber = phoneNumber;
-	//	this.customerID = Long.toString(ID);
-	//	ID++;
-        customerID = CUSTOMER_ID_STRING + (CreateIdServer.instance().getId());
+		//	this.customerID = Long.toString(ID);
+		//	ID++;
+		customerID = CUSTOMER_ID_STRING + (CreateIdServer.instance().getId());
 	}
-	
-	
-	
+
+
+
 	/**
 	 * add tickets to the Customer ticket list
 	 * @param ticket
 	 * @return
 	 */
 	public boolean addTickets(Ticket ticket) {
-		
+
 		return ticketList.add(ticket);
 	}
-	
-	
+
+
 	/**
 	 *check if card exist in the customer card list 
 	 * @param cardNumber
@@ -67,7 +67,7 @@ public class Customer implements Serializable{
 			if(cardNum.equals(cardNumber))
 				return card;
 		}
-		return null; 
+		return null;
 	}
 
 	// INCOMPLETE
@@ -82,7 +82,7 @@ public class Customer implements Serializable{
 
 	/**
 	 * Getter for list of cards for a Customer
-	 * 
+	 *
 	 * @return an iterator of a customer's credit cards
 	 */
 	public Iterator getCustomerCard() {
@@ -91,7 +91,7 @@ public class Customer implements Serializable{
 
 	/**
 	 * Gets number of cards a customer has on file
-	 * 
+	 *
 	 * @return an int of the number of cards a customer has on file
 	 */
 	public int cardCount() {
@@ -100,7 +100,7 @@ public class Customer implements Serializable{
 
 	/**
 	 * Gets customer's name
-	 * 
+	 *
 	 * @return a string of the customer's name
 	 */
 	public String getName() {
@@ -109,7 +109,7 @@ public class Customer implements Serializable{
 
 	/**
 	 * Gets customer's address
-	 * 
+	 *
 	 * @return a string of the customer's address
 	 */
 	public String getAddress() {
@@ -118,7 +118,7 @@ public class Customer implements Serializable{
 
 	/**
 	 * Gets customer's phone number
-	 * 
+	 *
 	 * @return a string of the customer's phone number
 	 */
 	public String getPhoneNumber() {
@@ -127,7 +127,7 @@ public class Customer implements Serializable{
 
 	/**
 	 * Get the customer's ID number
-	 * 
+	 *
 	 * @return a long of the customer's ID number
 	 */
 	public String getCustomerID() {
@@ -136,7 +136,7 @@ public class Customer implements Serializable{
 
 	/**
 	 * String representing a customer
-	 * 
+	 *
 	 * @return a string representing a customer
 	 */
 	@Override
@@ -144,11 +144,11 @@ public class Customer implements Serializable{
 		String outputString = " ";
 		outputString += "Customer ID: " + customerID + ", Name: " + name + ", Address: "
 				+ address + ", Phone number: #" + phoneNumber;
-		outputString +="\n The credit card(s): " + customerCard.toString(); 
-		outputString +="\n The ticket (s): " + ticketList.toString(); 
-		
+		outputString +="\n The credit card(s): " + customerCard.toString();
+		outputString +="\n The ticket (s): " + ticketList.toString();
+
 		return outputString;
-		
+
 	}
 
 }

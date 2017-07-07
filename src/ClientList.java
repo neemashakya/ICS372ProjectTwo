@@ -34,7 +34,7 @@ public class ClientList implements Serializable {
         return clientList == null ? (clientList = new ClientList()) : clientList;
     }
 
-   
+
     /**
      * Returns an iteration for all
      * of the clients.
@@ -91,7 +91,7 @@ public class ClientList implements Serializable {
      */
     public boolean removeClient(String clientID) {
         Client client = search(clientID);
-        
+
         if (client == null) {
             return false;
         } else {

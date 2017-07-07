@@ -8,8 +8,8 @@ import java.util.List;
 
 /**
  * The collection class for Customer objects
- * 
- * 
+ *
+ *
  * @author Matt Carlson, Jamison Czech, Slava Makharovich, Prashant Shrestha
  */
 
@@ -31,7 +31,7 @@ public class CustomerList implements Serializable {
 	public static CustomerList instance() {
 		return customerList == null ? (customerList = new CustomerList()) : customerList;
 	}
-	
+
 
 	/**
 	 * Adds a Customer to the collection
@@ -42,21 +42,21 @@ public class CustomerList implements Serializable {
 		customers.add(customer);
 		return true;
 	}
-	
+
 	/**
 	 * searches for a customer in the collection
 	 * @param customerID
 	 * @return a Customer if found or null if not found
 	 */
 	public Customer search(String customerID) {
-	    for (Iterator iterator = customers.iterator(); iterator.hasNext(); ) {
-	      Customer customer = (Customer) iterator.next();
-	      if (customer.getCustomerID().equals(customerID)) {
-	        return customer;
-	      }
-	    }
-	    return null;
-	  }
+		for (Iterator iterator = customers.iterator(); iterator.hasNext(); ) {
+			Customer customer = (Customer) iterator.next();
+			if (customer.getCustomerID().equals(customerID)) {
+				return customer;
+			}
+		}
+		return null;
+	}
 
 
 	/**
@@ -64,7 +64,7 @@ public class CustomerList implements Serializable {
 	 * of the customers and their cards.
 	 */
 	public Iterator getCustomers() {
-	    //ToDO need to output credit cards as well to screen
+		//ToDO need to output credit cards as well to screen
 //		Iterator result = customers.iterator();
 //		if (customers != null && !customers.isEmpty()) {
 //			System.out.println("The Customers are: ");
@@ -93,45 +93,45 @@ public class CustomerList implements Serializable {
 		}
 	}
 
-    /**
-     * write objects for serialization
-     *
-     * @param output stream
-     */
-    private void writeObject(ObjectOutputStream output) {
-        try {
-            output.defaultWriteObject();
-            output.writeObject(customerList);
+	/**
+	 * write objects for serialization
+	 *
+	 * @param output stream
+	 */
+	private void writeObject(ObjectOutputStream output) {
+		try {
+			output.defaultWriteObject();
+			output.writeObject(customerList);
 
-        } catch (IOException ioe) {
-            System.out.println(ioe);
-        }
-    }
+		} catch (IOException ioe) {
+			System.out.println(ioe);
+		}
+	}
 
-    /**
-     * read serialized object from
-     * persistent data
-     *
-     * @param input ObjectInputStream stream
-     */
-    private void readObject(ObjectInputStream input) {
-        try {
-            if (customerList != null) {
-                return;
-            } else {
-                input.defaultReadObject();
-                if (customerList == null) {
-                    customerList = (CustomerList) input.readObject();
-                } else {
-                    input.readObject();
-                }
-            }
-        } catch (IOException ioe) {
-            System.out.println("in ClientList readObject \n" + ioe);
-        } catch (ClassNotFoundException cnfe) {
-            cnfe.printStackTrace();
-        }
-    }
+	/**
+	 * read serialized object from
+	 * persistent data
+	 *
+	 * @param input ObjectInputStream stream
+	 */
+	private void readObject(ObjectInputStream input) {
+		try {
+			if (customerList != null) {
+				return;
+			} else {
+				input.defaultReadObject();
+				if (customerList == null) {
+					customerList = (CustomerList) input.readObject();
+				} else {
+					input.readObject();
+				}
+			}
+		} catch (IOException ioe) {
+			System.out.println("in ClientList readObject \n" + ioe);
+		} catch (ClassNotFoundException cnfe) {
+			cnfe.printStackTrace();
+		}
+	}
 
 	/**
 	 * String of the customer
