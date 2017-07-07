@@ -1,4 +1,5 @@
 import java.io.*;
+import java.sql.Date;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -22,11 +23,16 @@ public class Theater implements Serializable {
     public static final int DATE_NOT_OPEN = 11;
     public static final int SHOW_ADDED = 12;
     public static final int SHOW_NOT_ADDED = 13;
+    public static final int SUCCEED = 14;
+    public static final int SHOW_NOT_FOUND = 15;
+    public static final int INVALID_DATE = 16;
+    public static final int AMOUNT_EXCEEDS = 17;
     
     private ClientList clientList;
     private CustomerList customerList;
     private ShowList showList;
     private CardList cardList;
+    private TicketList ticketList;
 
     private static Theater theater;
     private List cards = new LinkedList();
@@ -217,11 +223,11 @@ public class Theater implements Serializable {
     }
 
     public int addShow(String clientID, String showName, Calendar startDate,
-                       Calendar endDate) {
+    		Calendar endDate, double regularPrice) {
         Client client=clientList.search(clientID);
         if(client != null){
-            if(showList.checkDate(startDate, endDate)){
-                Show show=new Show(showName, clientID, startDate, endDate );
+            if(showList.isDatesAvailable(startDate, endDate)){
+                Show show=new Show(showName, clientID, startDate, endDate, regularPrice );
                 if(showList.insertShow(show)){
                     return SHOW_ADDED;
                 }else{
@@ -283,6 +289,181 @@ public class Theater implements Serializable {
         }
     }
 
+    
+    /**
+     * sells regular tickets 
+     * @param customerID
+     * @param cardNumber
+     * @param date
+     * @param quantity
+     * @return
+     */
+    public int sellRegTickets(String customerID, String cardNumber, Calendar date, int quantity) {
+    	Customer customer = customerList.search(customerID);
+    	if (customer != null) {
+    		CreditCard card=customer.searchCard(cardNumber);
+    		if (card != null) {
+    			Show show=showList.checkShowByDate(date);
+    			if (show !=null) {
+    				String showName=show.getShowName();
+    				double price=show.getRegularTicketPrice();
+    				Ticket ticket = new RegularTicket(date,showName, price, quantity);
+    				this.ticketList.insertTickets(ticket);
+    				customer.addTickets(ticket);
+    				System.out.println("The totla is: " + ticket.getTotal());
+    				String clientID=show.getClientID();
+    				Client client=clientList.search(clientID);
+    				double clientMoney=ticket.getTotal()/2;
+    				System.out.println("The client monney: " + clientMoney);
+    				client.addToBalance(clientMoney);
+    				return SUCCEED;
+    				
+    			}else {
+    				return SHOW_NOT_FOUND;
+    				
+    			}
+    			
+    		}else {
+    			return CARD_NOT_FOUND;
+    		}
+    		
+    	}else {
+    		 return CUSTOMER_NOT_FOUND;
+    	}
+    	
+    	
+    
+    }
+    
+    
+    
+
+    /**
+     * sells student advanced tickets 
+     * @param customerID
+     * @param cardNumber
+     * @param date
+     * @param quantity
+     * @return
+     */
+    public int sellAdvTickets(String customerID, String cardNumber, Calendar date, int quantity) {
+    	Calendar currentDate= Calendar.getInstance();
+    	if(currentDate.equals(date)) {
+    		Customer customer = customerList.search(customerID);
+        	if (customer != null) {
+        		CreditCard card=customer.searchCard(cardNumber);
+        		if (card != null) {
+        			Show show=showList.checkShowByDate(date);
+        			if (show !=null) {
+        				String showName=show.getShowName();
+        				double price=show.getAdvancedTicketPrice();
+        				Ticket ticket = new AdvancedTicket(date,showName, price, quantity);
+        				this.ticketList.insertTickets(ticket);
+        				customer.addTickets(ticket);
+        				String clientID=show.getClientID();
+        				Client client=clientList.search(clientID);
+        				double clientMoney=ticket.getTotal()/2;
+        				client.addToBalance(clientMoney);
+        				return SUCCEED;
+        				
+        			}else {
+        				return SHOW_NOT_FOUND;
+        				
+        			}
+        			
+        		}else {
+        			return CARD_NOT_FOUND;
+        		}
+        		
+        	}else {
+        		 return CUSTOMER_NOT_FOUND;
+        	}
+        	
+    		
+    	}else {
+    		return INVALID_DATE;
+    	}
+    	
+    	
+    	
+    }
+    /**
+     * sells regular tickets 
+     * @param customerID
+     * @param cardNumber
+     * @param date
+     * @param quantity
+     * @return
+     */
+    public int sellAdvStudTickets(String customerID, String cardNumber, Calendar date, int quantity) {
+    	Calendar currentDate= Calendar.getInstance();
+    	if(currentDate.equals(date)) {
+    		Customer customer = customerList.search(customerID);
+        	if (customer != null) {
+        		CreditCard card=customer.searchCard(cardNumber);
+        		if (card != null) {
+        			Show show=showList.checkShowByDate(date);
+        			if (show !=null) {
+        				String showName=show.getShowName();
+        				double price=show.getAdvancedTicketPrice();
+        				Ticket ticket = new AdvancedTicket(date,showName, price, quantity);
+        				this.ticketList.insertTickets(ticket);
+        				customer.addTickets(ticket);
+        				String clientID=show.getClientID();
+        				Client client=clientList.search(clientID);
+        				double clientMoney=ticket.getTotal()/2;
+        				client.addToBalance(clientMoney);
+        				return SUCCEED;
+        				
+        			}else {
+        				return SHOW_NOT_FOUND;
+        				
+        			}
+        			
+        		}else {
+        			return CARD_NOT_FOUND;
+        		}
+        		
+        	}else {
+        		 return CUSTOMER_NOT_FOUND;
+        	}
+        	
+    		
+    	}else {
+    		return INVALID_DATE;
+    	}
+    	
+    	
+    	
+    }
+    
+    
+    
+    public int payForClient(String clientID, double amountToPaid) {
+    	Client client = clientList.search(clientID);
+    	if (client != null) {
+    		double balance=client.getBalance();
+    		if(balance>=amountToPaid) {
+    			client.withdrawMoney(amountToPaid);
+    			return SUCCEED;
+    			
+    		}else {
+    			return AMOUNT_EXCEEDS;
+    		}
+    		
+    	}else {
+    		return CLIENT_NOT_FOUND;
+    	}	
+    }
+    
+    
+    
+   public Iterator getTickets() {
+    	Iterator iter = ticketList.getIteratorTicketList();
+    	return iter;
+    }
+    
+    
     /**
      * Writes the object to the output stream
      *

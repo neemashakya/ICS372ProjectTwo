@@ -9,3 +9,14 @@
 /ShowList.class
 /Theater.class
 /UserInterface.class
+/Ticket.class
+/RegularTicket.class
+/StudentTicket.class
+/AdvanceTicket.class
+/TicketList.class
+/.classpath
+/.gitignore
+/.project
+/TheaterData
+/AdvancedTicket.class
+/StudentAdvancedTicket.class

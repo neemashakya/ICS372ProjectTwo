@@ -21,7 +21,7 @@ public class Customer implements Serializable{
 	private String customerID;
     private static final String CUSTOMER_ID_STRING = "cust ";
 	private List customerCard = new LinkedList();
-
+	private List  <Ticket> ticketList = new LinkedList();
 	/**
 	 * Creates a new Customer assigning a unique ID and default balance
 	 * 
@@ -39,6 +39,35 @@ public class Customer implements Serializable{
 	//	this.customerID = Long.toString(ID);
 	//	ID++;
         customerID = CUSTOMER_ID_STRING + (CreateIdServer.instance().getId());
+	}
+	
+	
+	
+	/**
+	 * add tickets to the Customer ticket list
+	 * @param ticket
+	 * @return
+	 */
+	public boolean addTickets(Ticket ticket) {
+		
+		return ticketList.add(ticket);
+	}
+	
+	
+	/**
+	 *check if card exist in the customer card list 
+	 * @param cardNumber
+	 * @return  credit card if card was found, otherwise null
+	 */
+	public CreditCard searchCard(String cardNumber) {
+		Iterator iter=this.getCustomerCard();
+		while(iter.hasNext()) {
+			CreditCard card = (CreditCard)iter.next();
+			String cardNum= card.getCardNumber();
+			if(cardNum.equals(cardNumber))
+				return card;
+		}
+		return null; 
 	}
 
 	// INCOMPLETE
@@ -116,6 +145,7 @@ public class Customer implements Serializable{
 		outputString += "Customer ID: " + customerID + ", Name: " + name + ", Address: "
 				+ address + ", Phone number: #" + phoneNumber;
 		outputString +="\n The credit card(s): " + customerCard.toString(); 
+		outputString +="\n The ticket (s): " + ticketList.toString(); 
 		
 		return outputString;
 		

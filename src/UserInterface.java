@@ -8,12 +8,16 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Date;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.StringTokenizer;
+
+import com.sun.java_cup.internal.runtime.Scanner;
 
 /**
  * This class implements the user interface for the Theater project. The
@@ -38,7 +42,12 @@ public class UserInterface {
     private static final int LIST_SHOWS = 10;
     private static final int SAVE = 11;
     private static final int RETRIEVE = 12;
-    private static final int HELP = 13;
+    private static final int SELL_REGULAR_TICKETS = 13;
+    private static final int SELL_ADVANCE_TICKETS = 14;
+    private static final int SELL_STUDENT_ADVANCE_TICKETS = 15;
+    private static final int PAY_CLIENT = 16;
+    private static final int DISPLAY_TICKETS=17;
+    private static final int HELP = 18;
 
     /**
      * Made private for singleton pattern. Conditionally looks for any saved
@@ -135,6 +144,7 @@ public class UserInterface {
             }
         } while (true);
     }
+    
 
     /**
      * Prompts for a command from the keyboard
@@ -173,7 +183,13 @@ public class UserInterface {
         System.out.println(LIST_SHOWS + " to list all shows");
         System.out.println(SAVE + " to save data");
         System.out.println(RETRIEVE + " to retrieve data");
+        System.out.println(SELL_REGULAR_TICKETS+ " to sell regular tickets");
+        System.out.println(SELL_ADVANCE_TICKETS+ " to sell advanced tickets");
+        System.out.println( SELL_STUDENT_ADVANCE_TICKETS + " tosell student advanced tickets");
+        System.out.println(PAY_CLIENT  + " to pay client ");
+        System.out.println(DISPLAY_TICKETS  + " to display tickets at certain day ");
         System.out.println(HELP + " for help");
+       
     }
 
     /**
@@ -403,16 +419,18 @@ public class UserInterface {
      * Method to be called for add a show. Prompts the user for the appropriate
      * values and uses the appropriate Theater method for adding the show if
      * possible.
+     * @throws ParseException 
      */
-    public void addShow() {
+    public void addShow() throws ParseException {
         int result;
         do {
             String clientID = getToken("Enter client id:");
             String showName = getToken("Enter name of show:");
+            String price = getToken("Enter the price for regular ticket:");
             Calendar startDate = getDate("Enter start date as mm/dd/yy:");
             Calendar endDate = getDate("Enter end date as mm/dd/yy:");
-
-            result = theater.addShow(clientID, showName, startDate, endDate);
+            double regularPrice= Double.parseDouble(price);
+            result = theater.addShow(clientID, showName, startDate, endDate, regularPrice);
 
             switch (result) {
                 case Theater.CLIENT_NOT_FOUND:
@@ -486,12 +504,206 @@ public class UserInterface {
         }
     }
 
+    
+    /**
+     * this method sells regular tickets 
+     * @throws ParseException 
+     */
+    public void sellRegularTicket() throws ParseException {
+    	int result;
+    	do {
+            String customerID = getToken("Enter customer id:");
+            String cardNumber = getToken("Enter cardNumber: ");
+            Calendar date = getDate("Enter date as mm/dd/yy:");
+            String numTickets = getToken("Enter requested number of tickets:");
+            Integer quantity=Integer.parseInt(numTickets);
 
+            result = theater.sellRegTickets(customerID, cardNumber,  date, quantity);
+
+            switch (result) {
+                case Theater.CUSTOMER_NOT_FOUND:
+                    System.out.println("No such customer!");
+                    break;
+                case Theater.CARD_NOT_FOUND:
+                    System.out.println("There is no such credit card!");
+                    break;
+                case Theater.SHOW_NOT_FOUND:
+                    System.out.println("There is no show at this date!");
+                    break;
+                case Theater.SUCCEED:
+                    System.out.println("You successfully bought regular tickets");
+                    break;
+                    
+                default:
+                    System.out.println("There was an error:");
+                    break;
+            }
+            if (!yesOrNo("Buy another tickets?")) {
+                break;
+            }
+        } while (true);
+    	
+    }
+    
+    
+    /**
+     * this method sells advanced tickets 
+     * @throws ParseException 
+     */
+    public void sellAdvanceTicket() throws ParseException {
+    	int result;
+    	do {
+            String customerID = getToken("Enter client id:");
+            String cardNumber = getToken("Enter cardNumber: ");
+            Calendar date = getDate("Enter date as mm/dd/yy:");
+            String numTickets = getToken("Enter requested number of tickets:");
+            Integer quantity=Integer.parseInt(numTickets);
+
+            result = theater.sellAdvTickets(customerID, cardNumber,  date, quantity);
+
+            switch (result) {
+                case Theater.CUSTOMER_NOT_FOUND:
+                    System.out.println("No such customer!");
+                    break;
+                case Theater.CARD_NOT_FOUND:
+                    System.out.println("There is no such credit card!");
+                    break;
+                case Theater.SHOW_NOT_FOUND:
+                    System.out.println("There is no show at this date!");
+                    break;
+                case Theater.INVALID_DATE:
+                    System.out.println("Advanced tickets cannot be purchased in the same day all later");
+                    break;
+                case Theater.SUCCEED:
+                    System.out.println("You successfully bought regular tickets");
+                    break;
+                    
+                default:
+                    System.out.println("There was an error:");
+                    break;
+            }
+            if (!yesOrNo("Buy another advanced tickets?")) {
+                break;
+            }
+        } while (true);
+    	
+    }
+
+
+   
+    
+    /**
+     * this method sells advanced student tickets 
+     * @throws ParseException 
+     */
+    public void sellAdvanceStudentTicket() throws ParseException {
+    	int result;
+    	do {
+            String customerID = getToken("Enter client id:");
+            String cardNumber = getToken("Enter cardNumber: ");
+            Calendar date = getDate("Enter date as mm/dd/yy:");
+            String numTickets = getToken("Enter requested number of tickets:");
+            Integer quantity=Integer.parseInt(numTickets);
+
+            result = theater.sellAdvStudTickets(customerID, cardNumber,  date, quantity);
+
+            switch (result) {
+                case Theater.CUSTOMER_NOT_FOUND:
+                    System.out.println("No such customer!");
+                    break;
+                case Theater.CARD_NOT_FOUND:
+                    System.out.println("There is no such credit card!");
+                    break;
+                case Theater.SHOW_NOT_FOUND:
+                    System.out.println("There is no show at this date!");
+                    break;
+                case Theater.INVALID_DATE:
+                    System.out.println(" Student Advanced tickets cannot be purchased in the same day all later");
+                    break;
+                case Theater.SUCCEED:
+                    System.out.println("You successfully bought student advanced tickets. \n Must show valid student id");
+                    break;
+                    
+                default:
+                    System.out.println("There was an error:");
+                    break;
+            }
+            if (!yesOrNo("Buy another student advanced tickets?")) {
+                break;
+            }
+        } while (true);
+    	
+    }
+    
+    
+    /**
+     * this method withdraws money from client balance
+     */
+    public void payClient() { 
+    int result;
+    do {
+        String clientID = getToken("Enter client id:");
+        String moneyRequest = getToken("Enter amount to withdraw:");
+        double amount=Double.parseDouble(moneyRequest);
+        result=theater.payForClient(clientID, amount);
+        
+        switch (result) {
+            case Theater.CLIENT_NOT_FOUND:
+                System.out.println("No such client!");
+                break;
+            case Theater.AMOUNT_EXCEEDS:
+                System.out.println("Your requsted amount exceeds your balance ");
+                break;
+            case Theater.SUCCEED:
+                System.out.println("You succesefully withdrew your money");
+                break;
+            default:
+                System.out.println("There was an error:");
+                break;
+        }
+        if (!yesOrNo("Do want to withdraw money again?")) {
+            break;
+        }
+    } while (true);
+}
+
+    
+    
+    public void displayTickets() throws ParseException {
+    	Iterator iter;
+    	int numOfTickets=0;
+    	
+           
+    	Calendar date = getDate("Enter date as mm/dd/yy:");
+           
+            iter=theater.getTickets();
+            while(iter.hasNext()) {
+            	Ticket ticket=(Ticket)iter.next();
+            	Calendar ticketDate=ticket.getDate();
+            	if (ticketDate.equals(date)) {
+            		System.out.println(" " + ticket.toString());
+            		numOfTickets++;
+            	}
+            	if(numOfTickets !=0) {
+            		System.out.println("There are no more tickets  at this date " + date);
+            	}else {
+            		System.out.println("There are no tickets  at this date " + date);
+            	}
+            }
+            
+
+            
+    		
+    }
+    
+    
+    
     /**
      * Orchestrates the whole process. Calls the appropriate method for the
      * different functionalities.
+     * @throws ParseException 
      */
-    public void process() {
+    public void process() throws ParseException {
         int command;
         help();
         while ((command = getCommand()) != EXIT) {
@@ -532,19 +744,38 @@ public class UserInterface {
                 case RETRIEVE:
                     retrieve();
                     break;
+                case SELL_REGULAR_TICKETS:
+                	sellRegularTicket();
+                    break;
+                case SELL_ADVANCE_TICKETS:
+                	sellAdvanceTicket();
+                case  SELL_STUDENT_ADVANCE_TICKETS:
+                	sellAdvanceStudentTicket();
+                case PAY_CLIENT:
+                	payClient();
+                    break;
+                case DISPLAY_TICKETS:
+                	displayTickets();
+                    break;
                 case HELP:
                     help();
                     break;
             }
         }
     }
+    
+    
+
+
+  
 
     /**
      * The method to start the application. Simply calls process().
      *
      * @param args not used
+     * @throws ParseException 
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         UserInterface.instance().process();
     }
 }

@@ -1,4 +1,6 @@
 import java.io.Serializable;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -14,6 +16,10 @@ public class Show implements Serializable{
 	private String clientID;
 	private Calendar startDate;
 	private Calendar endDate;
+	private double RegularTicketPrice;
+	private double AdvancedTicketPrice;
+	private double StudentAdvancedticketPrice;
+	SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");
 	
 	
 	/**
@@ -27,15 +33,82 @@ public class Show implements Serializable{
 	 * @param endDate
 	 */
 	public Show(String showName, String clientID, Calendar startDate,
-			Calendar endDate) {
+			Calendar endDate, double ticketPrice ) {
 		this.showName = showName;
 		this.clientID = clientID;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.RegularTicketPrice= ticketPrice;
+		this.AdvancedTicketPrice= RegularTicketPrice * 0.7;
+		this.StudentAdvancedticketPrice=this.AdvancedTicketPrice * .5;
 	}
 	
 	
 	
+	//String dateToStart=sdf.format(startDate);
+	//String dateToEnd=sdf.format(endDate);
+	
+	
+
+	public double getRegularTicketPrice() {
+		return RegularTicketPrice;
+	}
+
+
+
+
+
+
+
+	public void setRegularTicketPrice(double regularTicketPrice) {
+		RegularTicketPrice = regularTicketPrice;
+	}
+
+
+
+
+
+
+
+	public double getAdvancedTicketPrice() {
+		return AdvancedTicketPrice;
+	}
+
+
+
+
+
+
+
+	public void setAdvancedTicketPrice(double advancedTicketPrice) {
+		AdvancedTicketPrice = advancedTicketPrice;
+	}
+
+
+
+
+
+
+
+	public double getStudentAdvancedticketPrice() {
+		return StudentAdvancedticketPrice;
+	}
+
+
+
+
+
+
+
+	public void setStudentAdvancedticketPrice(double studentAdvancedticketPrice) {
+		StudentAdvancedticketPrice = studentAdvancedticketPrice;
+	}
+
+
+
+
+
+
 
 	/**
 	 * Getter for the name of the show
@@ -70,8 +143,23 @@ public class Show implements Serializable{
 	 * @return a calendar of the end date
 	 */
 	public Calendar getEndDate() {
+		
 		return endDate;
 	}
+	
+	
+	/**
+	 * checks if show in the days range
+	 * @param testDate
+	 * @return true if testDate with in range
+	 */
+	boolean isWithinRange(Calendar testDate) {
+		if(testDate.after(this.startDate)&&testDate.before(this.endDate))
+			return true;
+		return false;
+		}
+	
+	
 
 	/**
 	 * String representing a Show
@@ -82,6 +170,6 @@ public class Show implements Serializable{
 	@Override
 	public String toString() {
 		return "Show: " + getShowName() + ", Client ID: " + getClientID() + ", Start Date: "
-				+ getStartDate() + ", End Date " + getEndDate();
+				+ getStartDate() + " ,End Date " + getEndDate();
 	}
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -75,7 +76,16 @@ public class ShowList implements Serializable {
      * @param endDate
      * @return
      */
-    public boolean checkDate(Calendar startDate, Calendar endDate){
+    public boolean isDatesAvailable(Calendar startDate, Calendar endDate){
+    	Iterator iter=this.getShows();
+    	while(iter.hasNext()) {
+    		Show show=(Show) iter.next();
+    		if((show.isWithinRange(startDate)) || (show.isWithinRange(endDate))) {
+    			return false;
+    			
+    		}
+    		
+    	}
 
 
         return true;
@@ -156,6 +166,21 @@ public class ShowList implements Serializable {
 		catch(ClassNotFoundException cnfe) {
 				cnfe.printStackTrace();
 		}
+	}
+	/**
+	 * check if there is show in the certain day
+	 * @param date
+	 * @return
+	 */
+	public Show checkShowByDate(Calendar date) {
+		Iterator iter=this.getShows();
+		while(iter.hasNext()) {
+			Show show=(Show)iter.next();
+			if(show.isWithinRange(date)) {
+				return show;
+			}
+		}
+		return null;
 	}
 	
 	/**
