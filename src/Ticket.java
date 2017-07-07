@@ -1,13 +1,15 @@
 import java.util.Calendar;
 
 public abstract class Ticket {
+
+
     Integer serialNumber;
-    Calendar date;
-    String type;
-    double price;
-    int quantity;
-    double total;
-    String showName;
+    protected Calendar date;
+    protected String type;
+    protected double price;
+    protected int quantity;
+    protected double total;
+    protected String showName;
 
     public Integer getSerialNumber() {
         return serialNumber;
