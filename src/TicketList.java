@@ -42,7 +42,7 @@ public class TicketList {
 	
 	/**
 	 * searches for a show in the collection
-	 * @param showName
+	 * @param serialNumber
 	 *   String showName
 	 * @return a show if found or null if not found
 	 */
