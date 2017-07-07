@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62bd81eb-e0c1-4103-af0f-206c8ce3176b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheaterData" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ICS372ProjectTwo/ClientList.class" afterPath="$PROJECT_DIR$/out/production/ICS372ProjectTwo/ClientList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ICS372ProjectTwo/Customer.class" afterPath="$PROJECT_DIR$/out/production/ICS372ProjectTwo/Customer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ICS372ProjectTwo/ShowList.class" afterPath="$PROJECT_DIR$/out/production/ICS372ProjectTwo/ShowList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ICS372ProjectTwo/Theater.class" afterPath="$PROJECT_DIR$/out/production/ICS372ProjectTwo/Theater.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ICS372ProjectTwo/UserInterface.class" afterPath="$PROJECT_DIR$/out/production/ICS372ProjectTwo/UserInterface.class" />
+    <list default="true" id="62bd81eb-e0c1-4103-af0f-206c8ce3176b" name="Default" comment="current">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TheaterData" afterPath="$PROJECT_DIR$/TheaterData" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdvancedTicket.java" afterPath="$PROJECT_DIR$/src/AdvancedTicket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CardList.java" afterPath="$PROJECT_DIR$/src/CardList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Client.java" afterPath="$PROJECT_DIR$/src/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ClientList.java" afterPath="$PROJECT_DIR$/src/ClientList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CreateIdServer.java" afterPath="$PROJECT_DIR$/src/CreateIdServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CreditCard.java" afterPath="$PROJECT_DIR$/src/CreditCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customer.java" afterPath="$PROJECT_DIR$/src/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CustomerList.java" afterPath="$PROJECT_DIR$/src/CustomerList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RegularTicket.java" afterPath="$PROJECT_DIR$/src/RegularTicket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Show.java" afterPath="$PROJECT_DIR$/src/Show.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ShowList.java" afterPath="$PROJECT_DIR$/src/ShowList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/StudentAdvancedTicket.java" afterPath="$PROJECT_DIR$/src/StudentAdvancedTicket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Theater.java" afterPath="$PROJECT_DIR$/src/Theater.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ticket.java" afterPath="$PROJECT_DIR$/src/Ticket.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TicketList.java" afterPath="$PROJECT_DIR$/src/TicketList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserInterface.java" afterPath="$PROJECT_DIR$/src/UserInterface.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,18 +30,48 @@
       <file leaf-file-name="AdvancedTicket.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AdvancedTicket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="663">
+              <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowList.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShowList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ShowList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="47" column="50" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="48" selection-end-column="45" />
+            <state relative-caret-position="69">
+              <caret line="37" column="9" lean-forward="false" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TicketList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TicketList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ticket.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Ticket.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="499">
+              <caret line="69" column="77" lean-forward="true" selection-start-line="69" selection-start-column="77" selection-end-line="69" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegularTicket.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RegularTicket.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-745">
+              <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -94,15 +108,16 @@
         <option value="$PROJECT_DIR$/src/CustomerList.java" />
         <option value="$PROJECT_DIR$/src/Show.java" />
         <option value="$PROJECT_DIR$/src/StudentTicket.java" />
-        <option value="$PROJECT_DIR$/src/Ticket.java" />
-        <option value="$PROJECT_DIR$/src/RegularTicket.java" />
         <option value="$PROJECT_DIR$/src/StudentAdvancedTicket.java" />
-        <option value="$PROJECT_DIR$/src/TicketList.java" />
-        <option value="$PROJECT_DIR$/src/ShowList.java" />
         <option value="$PROJECT_DIR$/src/CreateIdServer.java" />
         <option value="$PROJECT_DIR$/src/Theater.java" />
         <option value="$PROJECT_DIR$/src/UserInterface.java" />
         <option value="$PROJECT_DIR$/src/CardList.java" />
+        <option value="$PROJECT_DIR$/src/AdvancedTicket.java" />
+        <option value="$PROJECT_DIR$/src/ShowList.java" />
+        <option value="$PROJECT_DIR$/src/TicketList.java" />
+        <option value="$PROJECT_DIR$/src/Ticket.java" />
+        <option value="$PROJECT_DIR$/src/RegularTicket.java" />
       </list>
     </option>
   </component>
@@ -608,22 +623,37 @@
       <option name="project" value="LOCAL" />
       <updated>1499445781201</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="example client ID = cl 1 &quot;Name&quot;&#10;example customer ID = cust 1 &quot;Name&quot;">
+      <created>1499448385842</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1499448385842</updated>
+    </task>
+    <task id="LOCAL-00005" summary="current">
+      <created>1499448461385</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1499448461385</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33799785" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33799785" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5063966" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.8740581" sideWeight="0.4936034" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51883745" sideWeight="0.4936034" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -649,7 +679,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="example client ID = cl 1 &quot;Name&quot;&#10;example customer ID = cust 1 &quot;Name&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="example client ID = cl 1 &quot;Name&quot;&#10;example customer ID = cust 1 &quot;Name&quot;" />
+    <MESSAGE value="current" />
+    <option name="LAST_COMMIT_MESSAGE" value="current" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -969,34 +1000,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ticket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicketList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="44" column="13" lean-forward="false" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CreateIdServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="104" column="1" lean-forward="false" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RegularTicket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1043,16 +1050,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdvancedTicket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="663">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShowList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="47" column="50" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="48" selection-end-column="45" />
+        <state relative-caret-position="69">
+          <caret line="37" column="9" lean-forward="false" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RegularTicket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-745">
+          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ticket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="69" column="77" lean-forward="true" selection-start-line="69" selection-start-column="77" selection-end-line="69" selection-end-column="77" />
           <folding />
         </state>
       </provider>

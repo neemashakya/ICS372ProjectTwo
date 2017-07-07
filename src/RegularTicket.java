@@ -18,7 +18,7 @@ public class RegularTicket extends Ticket implements Serializable{
 		this.showName=showName;
 		this.type= "Regular Ticket";
 		this.price=price;
-		this.quantety=quantity;
+		this.quantity=quantity;
 		this.total=price*quantity;
 	}
 

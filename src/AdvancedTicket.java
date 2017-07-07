@@ -1,87 +1,87 @@
 import java.io.Serializable;
 import java.util.Calendar;
 
-public class AdvancedTicket extends Ticket implements Serializable{
-	private Integer serialNumber=1;
-	private Calendar date;
-	private String type;
-	private double price;
-	private int quantety;
-	private double total;
-	private String showName;
-	
-	public AdvancedTicket( Calendar date, String showName, double price, int quantity) {
-		this.serialNumber=serialNumber;
-		serialNumber++;
-		this.date=date;
-		this.showName=showName;
-		this.type="Advanced Ticket";
-		this.price=price;
-		this.quantety=quantity;
-		this.total=price*quantity;
-	}
-	
-	
-	public Integer getSerialNumber() {
-		return serialNumber;
-	}
+public class AdvancedTicket extends Ticket implements Serializable {
+    private Integer serialNumber = 1;
+    private Calendar date;
+    private String type;
+    private double price;
+    private int quantity;
+    private double total;
+    private String showName;
 
-	public void setSerialNumber(Integer serialNumber) {
-		this.serialNumber = serialNumber;
-	}
+    public AdvancedTicket(Calendar date, String showName, double price, int quantity) {
+        this.serialNumber = serialNumber;
+        serialNumber++;
+        this.date = date;
+        this.showName = showName;
+        this.type = "Advanced Ticket";
+        this.price = price;
+        this.quantity = quantity;
+        this.total = price * quantity;
+    }
 
-	public Calendar getDate() {
-		return date;
-	}
 
-	public void setDate(Calendar date) {
-		this.date = date;
-	}
+    public Integer getSerialNumber() {
+        return serialNumber;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public void setSerialNumber(Integer serialNumber) {
+        this.serialNumber = serialNumber;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public Calendar getDate() {
+        return date;
+    }
 
-	public double getPrice() {
-		return price;
-	}
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public int getQuantety() {
-		return quantety;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public void setQuantety(int quantety) {
-		this.quantety = quantety;
-	}
+    public double getPrice() {
+        return price;
+    }
 
-	public double getTotal() {
-		return total;
-	}
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-	public void setTotal(double total) {
-		this.total = total;
-	}
-	public String toString() {
-		String outputString= "";
-		outputString= "Ticket Serial Number: " + this.getSerialNumber();
-		outputString= "Show Name: " + this.showName;
-		outputString= "Type: " + this.type;
-		outputString= "Date: " + this.date;
-		outputString= "Price: " + this.price;
-		outputString= "Total: " + this.getTotal();
-		
-		
-		
-		return outputString;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public String toString() {
+        String outputString = "";
+        outputString = "Ticket Serial Number: " + this.getSerialNumber();
+        outputString = "Show Name: " + this.showName;
+        outputString = "Type: " + this.type;
+        outputString = "Date: " + this.date;
+        outputString = "Price: " + this.price;
+        outputString = "Total: " + this.getTotal();
+
+
+        return outputString;
+    }
+
+
 }
