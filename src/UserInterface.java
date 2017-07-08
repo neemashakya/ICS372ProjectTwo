@@ -1,3 +1,4 @@
+
 /**
  * @author Brahma Dathan and Sarnath Ramnath
  * @Copyright (c) 2010
@@ -7,6 +8,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,6 +16,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.StringTokenizer;
+
+import com.sun.java_cup.internal.runtime.Scanner;
 
 /**
  * This class implements the user interface for the Theater project. The
@@ -526,14 +530,14 @@ public class UserInterface {
                     System.out.println("There is no show at this date!");
                     break;
                 case Theater.SUCCEED:
-                    System.out.println("You successfully bought tickets at regular price!");
+                    System.out.println("You successfully bought regular tickets");
                     break;
                     
                 default:
                     System.out.println("There was an error:");
                     break;
             }
-            if (!yesOrNo("Buy another ticket(s)?")) {
+            if (!yesOrNo("Buy another tickets?")) {
                 break;
             }
         } while (true);
@@ -671,17 +675,20 @@ public class UserInterface {
            
     	Calendar date = getDate("Enter date as mm/dd/yy:");
            
-            iter=theater.getTickets(date);
+            iter=theater.getTickets();
             while(iter.hasNext()) {
-            	Ticket ticket=(Ticket)iter.next();	
-            	System.out.println(" " + ticket.toString());
-            	numOfTickets++;	
+            	Ticket ticket=(Ticket)iter.next();
+            	Calendar ticketDate=ticket.getDate();
+            	if (ticketDate.equals(date)) {
+            		System.out.println(" " + ticket.toString());
+            		numOfTickets++;
+            	}
+            	if(numOfTickets !=0) {
+            		System.out.println("There are no more tickets  at this date " + date);
+            	}else {
+            		System.out.println("There are no tickets  at this date " + date);
+            	}
             }
-            if(numOfTickets !=0) {
-        		System.out.println("There are no more tickets for this date " + date);
-        	}else {
-        		System.out.println("There are no tickets for this date " + date);
-        	}
             
 
             
