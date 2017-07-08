@@ -42,6 +42,7 @@ public class CardList implements Serializable {
 
     /**
      * Adds a CreditCard to the collection
+     *
      * @param creditCard
      * @return a boolean indicating successful addition to collection
      */
@@ -57,13 +58,14 @@ public class CardList implements Serializable {
      * @return a CreditCard if found or null if not found
      */
     public CreditCard search(String cardNumber) {
-        if(cards.size() > 0) {
-        for (Iterator iterator = cards.iterator(); iterator.hasNext(); ) {
-            CreditCard creditCard = (CreditCard) iterator.next();
-            if (creditCard.getCardNumber().equals(cardNumber)) {
-                return creditCard;
+
+        if (cards.size() > 0) {
+            for (Iterator iterator = cards.iterator(); iterator.hasNext(); ) {
+                CreditCard creditCard = (CreditCard) iterator.next();
+                if (creditCard.getCardNumber().equals(cardNumber)) {
+                    return creditCard;
+                }
             }
-        }
         }
 
         return null;

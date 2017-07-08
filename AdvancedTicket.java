@@ -1,88 +1,30 @@
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.Calendar;
 
-public class AdvancedTicket extends Ticket implements Serializable{
-	private Integer serialNumber=1;
-	private Calendar date;
-	private String type;
-	private double price;
-	private int quantety;
-	private double total;
-	private String showName;
-	
-	public AdvancedTicket( Calendar date, String showName, double price, int quantity) {
-		this.serialNumber=serialNumber;
-		serialNumber++;
-		this.date=date;
-		this.showName=showName;
-		this.type="Advanced Ticket";
-		this.price=price;
-		this.quantety=quantity;
-		this.total=price*quantity;
-	}
-	
-	
-	public Integer getSerialNumber() {
-		return serialNumber;
-	}
+public class AdvancedTicket extends Ticket implements Serializable {
 
-	public void setSerialNumber(Integer serialNumber) {
-		this.serialNumber = serialNumber;
-	}
-
-	public Calendar getDate() {
-		return date;
-	}
-
-	public void setDate(Calendar date) {
+	public AdvancedTicket(int quantity, double price, Calendar date) {
+		this.quantity = quantity;
 		this.date = date;
+		this.ticketType = "Advance Ticket";
+		this.price = setPrice(price);
 	}
 
-	public String getType() {
-		return type;
+	@Override
+	protected double setPrice(double ticketPrice) {
+		this.price = ticketPrice * .7;
+		return this.price;
 	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public int getQuantety() {
-		return quantety;
-	}
-
-	public void setQuantety(int quantety) {
-		this.quantety = quantety;
-	}
-
-	public double getTotal() {
-		return total;
-	}
-
-	public void setTotal(double total) {
-		this.total = total;
-	}
 	public String toString() {
-		String outputString= "";
-		outputString= "Ticket Serial Number: " + this.getSerialNumber();
-		outputString= "Show Name: " + this.showName;
-		outputString= "Type: " + this.type;
-		outputString= "Date: " + this.date;
-		outputString= "Price: " + this.price;
-		outputString= "Total: " + this.getTotal();
-		
-		
-		
+		String outputString = "Ticket Serial Number: " + this.getSerialNumber()
+				+ "Type: " + this.ticketType
+				+ "Date: " + this.date
+				+ "Price: " + this.price
+				+ "Quantity: " + this.quantity
+				+ "Total: " + this.getTotal();
+
 		return outputString;
 	}
 
-	
 }
