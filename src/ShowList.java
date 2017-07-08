@@ -76,13 +76,14 @@ public class ShowList implements Serializable {
         Date start;
         Date end;
         Iterator iter = this.getShows();
+
         while (iter.hasNext()) {
             Show show = (Show) iter.next();
             start = (Date) show.setStartDate(startDate);
             end = (Date) show.setStartDate(endDate);
+
             if ((show.isWithinRange(start)) || (show.isWithinRange(end))) {
                 return false;
-
             }
 
         }
@@ -170,11 +171,14 @@ public class ShowList implements Serializable {
      * @param date
      * @return
      */
+
+    //ToDo is returning null always....
     public Show checkShowByDate(Calendar date) {
         Iterator iter = this.getShows();
+
         while (iter.hasNext()) {
             Show show = (Show) iter.next();
-            Date showDate = (Date) show.endStartDate(date);
+            Date showDate = (Date) show.setEndDate(date);
             if (show.isWithinRange(showDate)) {
                 return show;
             }

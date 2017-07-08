@@ -526,14 +526,14 @@ public class UserInterface {
                     System.out.println("There is no show at this date!");
                     break;
                 case Theater.SUCCEED:
-                    System.out.println("You successfully bought regular tickets");
+                    System.out.println("You successfully bought tickets at regular price!");
                     break;
                     
                 default:
                     System.out.println("There was an error:");
                     break;
             }
-            if (!yesOrNo("Buy another tickets?")) {
+            if (!yesOrNo("Buy another ticket(s)?")) {
                 break;
             }
         } while (true);

@@ -57,6 +57,7 @@ public class CardList implements Serializable {
      * @return a CreditCard if found or null if not found
      */
     public CreditCard search(String cardNumber) {
+
         if(cards.size() > 0) {
         for (Iterator iterator = cards.iterator(); iterator.hasNext(); ) {
             CreditCard creditCard = (CreditCard) iterator.next();
