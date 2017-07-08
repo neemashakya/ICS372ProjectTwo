@@ -2,78 +2,28 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 public class StudentAdvancedTicket extends Ticket implements Serializable {
-    private Integer serialNumber = 1;
 
+	public StudentAdvancedTicket(int quantity, double price, Calendar date) {
+		this.quantity = quantity;
+		this.date = date;
+		this.ticketType = "Student Advanced Ticket";
+		this.price = setPrice(price);
+	}
 
-    public StudentAdvancedTicket(Calendar date, String showName, double price, int quantity) {
-        this.serialNumber = serialNumber;
-        serialNumber++;
-        this.date = date;
-        this.showName = showName;
-        this.type = "Student Advanced Ticket";
-        this.price = price;
-        this.quantity = quantity;
-        this.total = price * quantity;
-    }
+	@Override
+	protected double setPrice(double ticketPrice) {
+		this.price = ticketPrice * .5;
+		return this.price;
+	}
 
-    public Integer getSerialNumber() {
-        return serialNumber;
-    }
+	public String toString() {
+		String outputString = "Ticket Serial Number: " + this.getSerialNumber()
+				+ "Type: " + this.ticketType 
+				+ "Date: " + this.date 
+				+ "Price: " + this.price 
+				+ "Quantity: " + this.quantity
+				+ "Total: " + this.getTotal();
 
-    public void setSerialNumber(Integer serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
-    public Calendar getDate() {
-        return date;
-    }
-
-    public void setDate(Calendar date) {
-        this.date = date;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getQuantety() {
-        return quantity;
-    }
-
-    public void setQuantety(int quantety) {
-        this.quantity = quantety;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-    public String toString() {
-        String outputString = "";
-        outputString = "Ticket Serial Number: " + this.getSerialNumber();
-        outputString = "Show Name: " + this.showName;
-        outputString = "Type: " + this.type;
-        outputString = "Date: " + this.date;
-        outputString = "Price: " + this.price;
-        outputString = "Total: " + this.getTotal();
-
-
-        return outputString;
-    }
+		return outputString;
+	}
 }

@@ -307,8 +307,8 @@ public class Theater implements Serializable {
 
                     String showName = show.getShowName();
                     double price = show.getRegularTicketPrice();
-                    Ticket ticket = new RegularTicket(date, showName, price, quantity);
-                    this.ticketList.insertTickets(ticket);
+                    Ticket ticket = new RegularTicket(quantity, price, date);
+                    this.ticketList.insertTicket(ticket);
                     customer.addTickets(ticket);
                     System.out.println("The total is: " + ticket.getTotal());
                     String clientID = show.getClientID();
@@ -355,8 +355,8 @@ public class Theater implements Serializable {
                     if (show != null) {
                         String showName = show.getShowName();
                         double price = show.getAdvancedTicketPrice();
-                        Ticket ticket = new AdvancedTicket(date, showName, price, quantity);
-                        this.ticketList.insertTickets(ticket);
+                        Ticket ticket = new AdvancedTicket(quantity, price, date);
+                        this.ticketList.insertTicket(ticket);
                         customer.addTickets(ticket);
                         String clientID = show.getClientID();
                         Client client = clientList.search(clientID);
@@ -405,8 +405,8 @@ public class Theater implements Serializable {
                     if (show != null) {
                         String showName = show.getShowName();
                         double price = show.getAdvancedTicketPrice();
-                        Ticket ticket = new AdvancedTicket(date, showName, price, quantity);
-                        this.ticketList.insertTickets(ticket);
+                        Ticket ticket = new AdvancedTicket(quantity, price, date);
+                        this.ticketList.insertTicket(ticket);
                         customer.addTickets(ticket);
                         String clientID = show.getClientID();
                         Client client = clientList.search(clientID);
@@ -454,9 +454,8 @@ public class Theater implements Serializable {
     }
 
 
-    public Iterator getTickets() {
-        Iterator iter = ticketList.getIteratorTicketList();
-        return iter;
+    public Iterator getTickets(Calendar date) {
+        return ticketList.getTicketsForDay(date);
     }
 
 

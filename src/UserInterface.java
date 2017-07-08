@@ -671,20 +671,17 @@ public class UserInterface {
            
     	Calendar date = getDate("Enter date as mm/dd/yy:");
            
-            iter=theater.getTickets();
+            iter=theater.getTickets(date);
             while(iter.hasNext()) {
-            	Ticket ticket=(Ticket)iter.next();
-            	Calendar ticketDate=ticket.getDate();
-            	if (ticketDate.equals(date)) {
-            		System.out.println(" " + ticket.toString());
-            		numOfTickets++;
-            	}
-            	if(numOfTickets !=0) {
-            		System.out.println("There are no more tickets  at this date " + date);
-            	}else {
-            		System.out.println("There are no tickets  at this date " + date);
-            	}
+            	Ticket ticket=(Ticket)iter.next();	
+            	System.out.println(" " + ticket.toString());
+            	numOfTickets++;	
             }
+            if(numOfTickets !=0) {
+        		System.out.println("There are no more tickets for this date " + date);
+        	}else {
+        		System.out.println("There are no tickets for this date " + date);
+        	}
             
 
             

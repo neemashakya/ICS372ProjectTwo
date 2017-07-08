@@ -1,71 +1,50 @@
 import java.util.Calendar;
 
-public abstract class Ticket {
+ 
+ public abstract class Ticket {
+ 	
+ 	protected int quantity;
+ 	protected Calendar date;
+ 	protected double price;
+ 	protected int serialNumber;
+ 	protected String ticketType;
+ 	
+ 	public String getType() {
+ 		return this.getClass().getName();
+ 	}
+ 	
+ 	public int getQuantity() {
+		return quantity;
+	}
 
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 
-    Integer serialNumber;
-    protected Calendar date;
-    protected String type;
-    protected double price;
-    protected int quantity;
-    protected double total;
-    protected String showName;
+	public Calendar getDate() {
+		return date;
+	}
 
-    public Integer getSerialNumber() {
-        return serialNumber;
-    }
+	public void setDate(Calendar date) {
+		this.date = date;
+	}
 
-    public void setSerialNumber(Integer serialNumber) {
-        this.serialNumber = serialNumber;
-    }
+	public int getSerialNumber() {
+		return serialNumber;
+	}
 
-    public Calendar getDate() {
-        return date;
-    }
+	public void setSerialNumber(int serialNumber) {
+		this.serialNumber = serialNumber;
+	}
 
-    public void setDate(Calendar date) {
-        this.date = date;
-    }
+	public double getPrice() {
+		return price;
+	}
+	
+	public double getTotal() {
+		return quantity * price;
+	}
 
-    public String getType() {
-        return type;
-    }
+	protected abstract double setPrice(double ticketPrice);
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-    public String getShowName() {
-        return showName;
-    }
-
-    public void setShowName(String showName) {
-        this.showName = showName;
-    }
-
-
-}
+ }
