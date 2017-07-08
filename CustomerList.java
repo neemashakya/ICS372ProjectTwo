@@ -61,7 +61,7 @@ public class CustomerList implements Serializable {
 
 	/**
 	 * Returns an iteration for all
-	 * of the customers and their cards.                                  
+	 * of the customers and their cards.
 	 */
 	public Iterator getCustomers() {
 	    //ToDO need to output credit cards as well to screen
