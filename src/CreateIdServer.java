@@ -78,7 +78,7 @@ public class CreateIdServer implements Serializable {
    * Supports serialization
    * @param output the stream to be written to
    */
-  private void writeObject(ObjectOutputStream output) throws IOException {
+  private void writeObject(java.io.ObjectOutputStream output) throws IOException {
     try {
       output.defaultWriteObject();
       output.writeObject(server);
@@ -90,7 +90,7 @@ public class CreateIdServer implements Serializable {
    * Supports serialization
    * @param input the stream to be read from
    */
-  private void readObject(ObjectInputStream input) throws IOException, ClassNotFoundException {
+  private void readObject(java.io.ObjectInputStream input) throws IOException, ClassNotFoundException {
     try {
       input.defaultReadObject();
       if (server == null) {
